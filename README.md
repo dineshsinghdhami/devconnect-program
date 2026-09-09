@@ -14,12 +14,14 @@ This repository contains my practical tasks, projects, documentation, and final 
 
 ## Repository Structure
 
+```
 devconnect-program/
 ├── task-1-conference-schedule/
 ├── task-2-reading-list/
 ├── final-project/
 ├── docs/
 └── README.md
+```
 
 ---
 
@@ -97,6 +99,7 @@ Open the local Vite URL shown in the terminal.
 
 ## Task 1 Structure
 
+```
 task-1-conference-schedule/
 ├── src/
 │   ├── components/
@@ -114,6 +117,7 @@ task-1-conference-schedule/
 ├── README.md
 ├── package.json
 └── vite.config.js
+```
 
 ---
 
