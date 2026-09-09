@@ -1,0 +1,674 @@
+#root {
+  min-height: 100vh;
+}
+
+/* -----------------------------
+   Accessibility
+----------------------------- */
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 9999;
+
+  padding: 10px 14px;
+
+  background: #ffffff;
+  color: #051108;
+
+  border-radius: 8px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #7df7a2;
+  outline-offset: 3px;
+}
+
+/* -----------------------------
+   Header
+----------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  border-bottom: 1px solid rgba(125, 247, 162, 0.1);
+
+  background: rgba(1, 9, 4, 0.88);
+
+  backdrop-filter: blur(16px);
+}
+
+.site-header__inner {
+  width: min(1120px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(125, 247, 162, 0.35);
+  border-radius: 10px;
+
+  background: #072111;
+  color: #82f6a4;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.brand-text {
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.site-header nav a {
+  padding: 9px 14px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  color: #94a89b;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.site-header nav a:hover {
+  border-color: rgba(125, 247, 162, 0.15);
+
+  background: rgba(125, 247, 162, 0.04);
+
+  color: #ffffff;
+}
+
+/* -----------------------------
+   Main
+----------------------------- */
+
+.schedule {
+  width: min(1120px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 86px 0 90px;
+}
+
+/* -----------------------------
+   Hero
+----------------------------- */
+
+.schedule__intro {
+  max-width: 760px;
+
+  margin: 0 auto 46px;
+
+  text-align: center;
+}
+
+.schedule__eyebrow {
+  margin: 0 0 18px;
+
+  color: #71e997;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.schedule__intro h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2.3rem, 6vw, 4rem);
+  font-weight: 780;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.04em;
+}
+
+.schedule__description {
+  max-width: 620px;
+
+  margin: 20px auto 0;
+
+  color: #91a398;
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* -----------------------------
+   Day Switcher
+----------------------------- */
+
+.schedule__days {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 52px;
+}
+
+.day-tabs {
+  display: inline-flex;
+
+  gap: 6px;
+
+  padding: 6px;
+
+  border: 1px solid rgba(125, 247, 162, 0.14);
+  border-radius: 14px;
+
+  background: #06130b;
+}
+
+.day-tab {
+  min-width: 180px;
+
+  padding: 12px 18px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #8ca096;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.day-tab span,
+.day-tab small {
+  display: block;
+}
+
+.day-tab span {
+  color: inherit;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.day-tab small {
+  margin-top: 3px;
+
+  color: #65796e;
+
+  font-size: 0.72rem;
+}
+
+.day-tab:hover {
+  background: rgba(125, 247, 162, 0.04);
+
+  color: #ffffff;
+}
+
+.day-tab--active {
+  border-color: rgba(125, 247, 162, 0.2);
+
+  background: #0a2414;
+
+  color: #ffffff;
+}
+
+.day-tab--active small {
+  color: #80ba92;
+}
+
+/* -----------------------------
+   Tracks
+----------------------------- */
+
+.schedule__content {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+.track {
+  min-width: 0;
+}
+
+.track__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  padding: 0 4px;
+}
+
+.track__header h2 {
+  margin: 0;
+
+  color: #f4f8f5;
+
+  font-size: 1.05rem;
+  font-weight: 720;
+}
+
+.track__header span {
+  color: #64786b;
+
+  font-size: 0.75rem;
+}
+
+/* -----------------------------
+   Session Cards
+----------------------------- */
+
+.track__sessions {
+  display: grid;
+
+  gap: 12px;
+}
+
+.session-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 20px;
+
+  border: 1px solid rgba(125, 247, 162, 0.11);
+  border-radius: 15px;
+
+  background: #06120a;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.session-card:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(125, 247, 162, 0.23);
+
+  background: #07170d;
+}
+
+.session-card__time {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-bottom: 12px;
+
+  color: #6dec94;
+
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.session-card__title {
+  margin: 0 0 14px;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.session-card__speaker,
+.session-card__room {
+  margin: 4px 0;
+
+  color: #84978b;
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.session-card__button {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 10px 13px;
+
+  border: 1px solid rgba(125, 247, 162, 0.15);
+  border-radius: 9px;
+
+  background: #091b10;
+
+  color: #dce7df;
+
+  font: inherit;
+
+  font-size: 0.82rem;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.session-card__button:hover {
+  border-color: rgba(125, 247, 162, 0.3);
+
+  background: #0b2615;
+
+  color: #ffffff;
+}
+
+/* -----------------------------
+   Dialog
+----------------------------- */
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: grid;
+  place-items: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(8px);
+}
+
+.session-dialog {
+  width: min(520px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  border: 1px solid rgba(125, 247, 162, 0.18);
+  border-radius: 18px;
+
+  background: #06130b;
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.55);
+}
+
+.session-dialog__header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 24px 24px 18px;
+
+  border-bottom: 1px solid rgba(125, 247, 162, 0.1);
+}
+
+.session-dialog__header h2 {
+  margin: 5px 0 0;
+
+  color: #ffffff;
+
+  font-size: 1.35rem;
+
+  line-height: 1.3;
+}
+
+.session-dialog__time {
+  margin: 0;
+
+  color: #6dec94;
+
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.session-dialog__close {
+  flex: 0 0 auto;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(125, 247, 162, 0.18);
+  border-radius: 10px;
+
+  background: #081b0f;
+
+  color: #ffffff;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+}
+
+.session-dialog__close:hover {
+  background: #0c2817;
+}
+
+.session-dialog__content {
+  padding: 22px 24px;
+}
+
+.session-dialog__content p {
+  margin: 0 0 14px;
+
+  color: #90a398;
+
+  line-height: 1.7;
+}
+
+.session-dialog__content strong {
+  color: #e8efea;
+}
+
+.session-dialog__content p:last-child {
+  margin-bottom: 0;
+}
+
+.session-dialog__footer {
+  padding: 0 24px 24px;
+}
+
+.session-dialog__button {
+  width: 100%;
+
+  padding: 12px 16px;
+
+  border: 1px solid rgba(125, 247, 162, 0.18);
+  border-radius: 10px;
+
+  background: #0b2817;
+
+  color: #ffffff;
+
+  font: inherit;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.session-dialog__button:hover {
+  background: #10351f;
+}
+
+/* -----------------------------
+   Tablet
+----------------------------- */
+
+@media (max-width: 900px) {
+  .schedule__content {
+    grid-template-columns: 1fr;
+  }
+
+  .track {
+    padding-bottom: 14px;
+  }
+}
+
+/* -----------------------------
+   Mobile
+----------------------------- */
+
+@media (max-width: 600px) {
+  .site-header__inner {
+    width: min(100% - 24px, 1120px);
+
+    min-height: 64px;
+  }
+
+  .brand-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .brand-text {
+    font-size: 0.9rem;
+  }
+
+  .site-header nav a {
+    padding: 8px;
+  }
+
+  .schedule {
+    width: min(100% - 24px, 1120px);
+
+    padding: 54px 0 60px;
+  }
+
+  .schedule__intro {
+    margin-bottom: 32px;
+  }
+
+  .schedule__intro h1 {
+    font-size: 2.45rem;
+  }
+
+  .schedule__description {
+    font-size: 0.9rem;
+  }
+
+  .schedule__days {
+    margin-bottom: 38px;
+  }
+
+  .day-tabs {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .day-tab {
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px 12px;
+  }
+
+  .session-card {
+    padding: 18px;
+  }
+
+  .session-dialog__header {
+    padding: 20px 18px 15px;
+  }
+
+  .session-dialog__content {
+    padding: 18px;
+  }
+
+  .session-dialog__footer {
+    padding: 0 18px 18px;
+  }
+}
+
+/* -----------------------------
+   Very Small Screens
+----------------------------- */
+
+@media (max-width: 360px) {
+  .schedule {
+    width: calc(100% - 20px);
+  }
+
+  .site-header__inner {
+    width: calc(100% - 20px);
+  }
+
+  .day-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule__intro h1 {
+    font-size: 2rem;
+  }
+}
