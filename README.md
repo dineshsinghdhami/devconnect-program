@@ -1,16 +1,16 @@
 # DevConnect Program
 
-This repository contains my practical tasks, projects, documentation, and final project completed as part of the DevConnect program.
+This repository contains my practical tasks, documentation, pull-request work, and final project completed as part of the DevConnect program.
 
 ## Progress
 
 - [x] Knowledge Assessment — 97%
 - [x] Task 1 — Accessible Conference Schedule
 - [x] Task 2 — Personal Reading List
-- [ ] Final Project
+- [x] Final Project — Atlas Country Explorer
 - [ ] Community Contributions
-- [ ] Documentation
-- [ ] Professional Practice
+- [x] Documentation
+- [x] Professional Practice — 3 merged pull requests
 
 ## Repository Structure
 
@@ -20,6 +20,7 @@ devconnect-program/
 ├── task-2-reading-list/
 ├── final-project/
 ├── docs/
+│   └── decisions/
 └── README.md
 ```
 
@@ -46,7 +47,7 @@ https://devconnect-conference-schedule.vercel.app
 - Two-day conference schedule
 - Three parallel tracks
 - Responsive desktop and mobile layouts
-- Fully keyboard-accessible navigation
+- Keyboard-accessible navigation
 - Visible focus indicators
 - Accessible session details dialog
 - Escape key support for closing dialogs
@@ -97,35 +98,13 @@ npm run dev
 
 Open the local Vite URL shown in the terminal.
 
-## Task 1 Structure
-
-```
-task-1-conference-schedule/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Schedule.jsx
-│   │   ├── SessionCard.jsx
-│   │   └── SessionDialog.jsx
-│   ├── data/
-│   │   └── sessions.js
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── public/
-├── README.md
-├── package.json
-└── vite.config.js
-```
-
 ---
 
 # Task 2 — Personal Reading List
 
 A responsive reading list application built with React and Vite.
 
-The application uses the Open Library API to search real books and allows users to save books to a personal reading list using browser localStorage.
+The application uses the Open Library API to search real books and allows users to save books to a personal reading list using browser `localStorage`.
 
 ## Live Demo
 
@@ -137,13 +116,13 @@ https://devconnect-reading-list.vercel.app
 - Display real book titles, authors, publication years, and covers
 - Add books to a personal reading list
 - Remove books from the reading list
-- Saved books persist after page refresh using localStorage
+- Saved books persist after page refresh
 - Responsive desktop and mobile layout
 - Loading state
 - Error state
 - Empty state
 - Reviewer controls for testing required application states
-- Retry action for error state
+- Retry action for the error state
 
 ## Data Source
 
@@ -175,18 +154,7 @@ The interface explains that the reading list could not be loaded and provides a 
 
 The empty state can be tested using the `Empty` button.
 
-The interface explains what the reading list is for and gives the user a clear action to start adding books.
-
-These states can be tested directly from the interface without changing the source code.
-
-## How to Use
-
-1. Search for a book, author, or topic.
-2. Browse the results returned by Open Library.
-3. Click `Add to reading list`.
-4. The selected book appears in the saved reading list.
-5. Refresh the page to confirm that the book remains saved.
-6. Click `Remove` to remove the book.
+The interface explains what the reading list is for and gives the user a clear first action.
 
 ## Tech Stack
 
@@ -211,47 +179,151 @@ Start the development server:
 
 npm run dev
 
-Open the local Vite URL shown in the terminal.
+---
 
-## Task 2 Structure
+# Final Project — Atlas Country Explorer
 
-```
-task-2-reading-list/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── BookSearch.jsx
-│   │   ├── ReadingList.jsx
-│   │   ├── BookCard.jsx
-│   │   └── StatePanel.jsx
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── README.md
-├── package.json
-└── vite.config.js
-```
+Atlas Country Explorer is a responsive web application that makes country information easier to search, browse, and understand.
+
+The project uses the REST Countries v5 API to load real country data.
+
+Users can search countries, filter them by region, and open a country to view detailed information.
+
+## Live Demo
+
+https://devconnect-atlas-country-explorer.vercel.app/
+
+## Features
+
+- Browse countries
+- Search countries by name
+- Filter countries by region
+- Real country flags
+- Capital information
+- Region and subregion
+- Population
+- Area
+- Languages
+- Currency information
+- Country detail popup
+- Loading state
+- Error state with retry
+- Empty search state
+- Show-more functionality
+- Responsive desktop, tablet, and mobile layout
+- Keyboard-accessible country detail dialog
+- Escape key support
+- Focus restoration after closing the dialog
+
+## Data Source
+
+Country information is loaded from the REST Countries v5 API.
+
+The application uses API data rather than hardcoded country information.
+
+The application also handles missing values by displaying `Not available` instead of guessing information.
+
+## Data Limitations
+
+The project depends on information returned by an external API.
+
+Because of this:
+
+- Some values may change over time.
+- Some countries may not contain every data field.
+- Population and other changing statistics depend on the API's update schedule.
+- API availability can affect the application.
+- The application does not independently verify every value against national government sources.
+
+## Application States
+
+### Loading
+
+A loading message is shown while country data is being requested.
+
+### Error
+
+If the API request fails, an error message is displayed with a `Try again` action.
+
+### Empty
+
+If no country matches the selected search or region, the application displays a clear empty state and allows the user to clear the filters.
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- CSS
+- REST Countries v5 API
+
+## Run Final Project Locally
+
+Move into the final project directory:
+
+cd final-project
+
+Install dependencies:
+
+npm install
+
+Create a `.env` file:
+
+VITE_REST_COUNTRIES_API_KEY=YOUR_API_KEY
+
+Start the development server:
+
+npm run dev
 
 ---
 
-## Remaining Work
+# Documentation
 
-### Final Project
+Technical decision records are stored in:
 
-Build a project using a public dataset or API to make useful information easier to understand or explore.
+docs/decisions/
 
-### Community Contributions
+The documentation includes:
 
-Complete five substantive contributions to five different DevConnect members.
+- `001-rest-countries-api.md`
+- `002-country-detail-modal.md`
+- `003-show-more-pagination.md`
 
-### Documentation
+These decision records explain:
 
-Create documentation covering important technical decisions, alternatives considered, trade-offs, and project setup.
+- The decision that was made
+- Alternatives considered
+- Why the selected approach was chosen
+- Downsides and trade-offs
+- Awkward or difficult parts of the implementation
 
-### Professional Practice
+---
 
-Complete three merged pull requests that clearly explain what changed and why.
+# Professional Practice
+
+The final project was developed through separate branches and pull requests instead of making all changes directly on `main`.
+
+## Merged Pull Requests
+
+### PR #1 — Final Project Setup
+
+Set up the Atlas Country Explorer project, API integration, and initial filtering functionality.
+
+### PR #2 — Final Project UI
+
+Improved the interface, responsive country cards, search and filters, country detail popup, and accessibility behavior.
+
+### PR #3 — Documentation
+
+Added the final project README and technical decision records.
+
+This approach keeps changes separated, reviewable, and easier to understand.
+
+---
+
+# Community Contributions
+
+Five substantive contributions to five different DevConnect members are still to be completed.
 
 ---
 
@@ -261,10 +333,19 @@ Complete three merged pull requests that clearly explain what changed and why.
 |---|---|---|
 | Accessible Conference Schedule | Completed | https://devconnect-conference-schedule.vercel.app |
 | Personal Reading List | Completed | https://devconnect-reading-list.vercel.app |
-| Final Project | Upcoming | — |
+| Atlas Country Explorer | Completed | https://devconnect-atlas-country-explorer.vercel.app/ |
 
 ---
 
 ## Author
 
-Dinesh Singh Dhami
+**Dinesh Singh Dhami**
+
+GitHub:
+https://github.com/dineshsinghdhami
+
+LinkedIn:
+https://www.linkedin.com/in/dineshsinghdhami2/
+
+Portfolio:
+https://dineshsinghdhami.com.np/
