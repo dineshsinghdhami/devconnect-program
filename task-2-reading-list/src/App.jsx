@@ -1,122 +1,197 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import BookSearch from "./components/BookSearch";
+import ReadingList from "./components/ReadingList";
+import StatePanel from "./components/StatePanel";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [readingList, setReadingList] = useState([]);
+  const [status, setStatus] = useState("loading");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        const savedBooks = localStorage.getItem("devconnect-reading-list");
+
+        if (savedBooks) {
+          setReadingList(JSON.parse(savedBooks));
+        }
+
+        setStatus("success");
+      } catch {
+        setStatus("error");
+      }
+    }, 900);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (status === "success") {
+      localStorage.setItem(
+        "devconnect-reading-list",
+        JSON.stringify(readingList)
+      );
+    }
+  }, [readingList, status]);
+
+  const addBook = (book) => {
+    const alreadyExists = readingList.some(
+      (item) => item.id === book.id
+    );
+
+    if (alreadyExists) {
+      return;
+    }
+
+    setReadingList((currentList) => [
+      ...currentList,
+      book,
+    ]);
+  };
+
+  const removeBook = (bookId) => {
+    setReadingList((currentList) =>
+      currentList.filter((book) => book.id !== bookId)
+    );
+  };
+
+  const showLoadingState = () => {
+    setStatus("loading");
+
+    setTimeout(() => {
+      setStatus("success");
+    }, 1800);
+  };
+
+  const showErrorState = () => {
+    setStatus("error");
+  };
+
+  const showEmptyState = () => {
+    setReadingList([]);
+    setStatus("success");
+  };
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
+      <Header readingCount={readingList.length} />
+
+      <main className="page-shell">
+        <section className="page-banner">
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Search real books from Open Library and build your personal reading list.
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        </section>
 
-      <div className="ticks"></div>
+        <section className="content-layout">
+          <div className="content-main">
+            <StatePanel
+              status={status}
+              hasBooks={readingList.length > 0}
+              onRetry={() => setStatus("success")}
+            />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            {status === "success" && (
+              <BookSearch
+                onAddBook={addBook}
+                readingList={readingList}
+              />
+            )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+            {status === "success" && (
+              <ReadingList
+                books={readingList}
+                onRemoveBook={removeBook}
+              />
+            )}
+          </div>
+
+          <aside className="right-sidebar">
+            <section className="sidebar-section">
+              <h2>Reviewer tools</h2>
+
+              <p>
+                Test the required application states.
+              </p>
+
+              <div className="reviewer-buttons">
+                <button
+                  type="button"
+                  onClick={showLoadingState}
+                >
+                  Loading
+                </button>
+
+                <button
+                  type="button"
+                  onClick={showErrorState}
+                >
+                  Error
+                </button>
+
+                <button
+                  type="button"
+                  onClick={showEmptyState}
+                >
+                  Empty
+                </button>
+              </div>
+            </section>
+
+            <section className="sidebar-section">
+              <h2>About this task</h2>
+
+              <p>
+                Built for DevConnect Task 2 using React,
+                Open Library API and browser localStorage.
+              </p>
+            </section>
+
+            <section className="sidebar-section sidebar-author">
+              <h2>Built by</h2>
+
+              <strong>Dinesh Singh Dhami</strong>
+
+              <div>
+                <a
+                  href="https://github.com/dineshsinghdhami"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/dineshsinghdhami2/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+
+                <a
+                  href="https://dineshsinghdhami.com.np/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Portfolio
+                </a>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="site-footer__inner">
+          <span>© 2026 Dinesh Singh Dhami</span>
+          <span>DevConnect · Personal Reading List</span>
+        </div>
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
