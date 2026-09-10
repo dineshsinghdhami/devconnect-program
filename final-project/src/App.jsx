@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("All");
   const [status, setStatus] = useState("loading");
@@ -242,6 +243,11 @@ function App() {
     return "Not available";
   };
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearch(searchInput.trim());
+  };
+
   const selectCountry = (country, event) => {
     lastFocusedElementRef.current = event.currentTarget;
     setSelectedCountry(country);
@@ -258,6 +264,7 @@ function App() {
   };
 
   const clearFilters = () => {
+    setSearchInput("");
     setSearch("");
     setRegion("All");
   };
@@ -298,7 +305,10 @@ function App() {
                   )}
                 </div>
 
-                <div className="search-box">
+                <form
+                  className="search-box"
+                  onSubmit={handleSearch}
+                >
                   <label
                     htmlFor="country-search"
                     className="sr-only"
@@ -310,16 +320,16 @@ function App() {
                     id="country-search"
                     type="search"
                     placeholder="Search country..."
-                    value={search}
+                    value={searchInput}
                     onChange={(event) =>
-                      setSearch(event.target.value)
+                      setSearchInput(event.target.value)
                     }
                   />
 
-                  <button type="button">
+                  <button type="submit">
                     Search
                   </button>
-                </div>
+                </form>
               </div>
 
               <div className="region-buttons">
@@ -350,6 +360,7 @@ function App() {
               {status === "loading" && (
                 <div className="state-panel">
                   <h2>Loading countries</h2>
+
                   <p>
                     Please wait while country data is being loaded.
                   </p>
