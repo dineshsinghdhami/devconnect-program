@@ -32,6 +32,10 @@ Users can search countries, filter them by region, and open a country to view mo
 
 https://devconnect-atlas-country-explorer.vercel.app/
 
+Reviewer note:
+
+Use the search box and region filters to explore countries. Click `View country` to open the country detail dialog. The application also includes loading, error, and empty states for API and search behavior.
+
 ## Tech Stack
 
 - React
