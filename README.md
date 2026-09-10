@@ -6,7 +6,7 @@ This repository contains my practical tasks, projects, documentation, and final 
 
 - [x] Knowledge Assessment — 97%
 - [x] Task 1 — Accessible Conference Schedule
-- [ ] Task 2 — Personal Reading List
+- [x] Task 2 — Personal Reading List
 - [ ] Final Project
 - [ ] Community Contributions
 - [ ] Documentation
@@ -121,33 +121,147 @@ task-1-conference-schedule/
 
 ---
 
-## Upcoming Work
+# Task 2 — Personal Reading List
 
-### Task 2 — Personal Reading List
+A responsive reading list application built with React and Vite.
 
-A state and data task demonstrating:
+The application uses the Open Library API to search real books and allows users to save books to a personal reading list using browser localStorage.
 
-- loading state
-- error state
-- empty state
-- adding and removing entries
-- API or persistent storage integration
+## Live Demo
+
+https://devconnect-reading-list.vercel.app
+
+## Features
+
+- Search real books using the Open Library API
+- Display real book titles, authors, publication years, and covers
+- Add books to a personal reading list
+- Remove books from the reading list
+- Saved books persist after page refresh using localStorage
+- Responsive desktop and mobile layout
+- Loading state
+- Error state
+- Empty state
+- Reviewer controls for testing required application states
+- Retry action for error state
+
+## Data Source
+
+Book data is fetched from the Open Library Search API.
+
+Book covers are loaded using the Open Library Covers service.
+
+The application does not use hardcoded book data.
+
+## Persistent Storage
+
+Saved books are stored using browser `localStorage`.
+
+This means the reading list remains available after refreshing the page on the same browser.
+
+## Required States
+
+### Loading State
+
+The loading state can be tested using the `Loading` button in the Reviewer Tools section.
+
+### Error State
+
+The error state can be tested using the `Error` button.
+
+The interface explains that the reading list could not be loaded and provides a retry action.
+
+### Empty State
+
+The empty state can be tested using the `Empty` button.
+
+The interface explains what the reading list is for and gives the user a clear action to start adding books.
+
+These states can be tested directly from the interface without changing the source code.
+
+## How to Use
+
+1. Search for a book, author, or topic.
+2. Browse the results returned by Open Library.
+3. Click `Add to reading list`.
+4. The selected book appears in the saved reading list.
+5. Refresh the page to confirm that the book remains saved.
+6. Click `Remove` to remove the book.
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Open Library API
+- localStorage
+
+## Run Task 2 Locally
+
+Move into the Task 2 directory:
+
+cd task-2-reading-list
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Open the local Vite URL shown in the terminal.
+
+## Task 2 Structure
+
+```
+task-2-reading-list/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx
+│   │   ├── BookSearch.jsx
+│   │   ├── ReadingList.jsx
+│   │   ├── BookCard.jsx
+│   │   └── StatePanel.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── README.md
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## Remaining Work
 
 ### Final Project
 
-A project using a public dataset or API to make useful information easier to understand or explore.
+Build a project using a public dataset or API to make useful information easier to understand or explore.
 
 ### Community Contributions
 
-Five substantive contributions to other DevConnect members.
+Complete five substantive contributions to five different DevConnect members.
 
 ### Documentation
 
-Documentation covering important technical decisions, alternatives considered, trade-offs, and project setup.
+Create documentation covering important technical decisions, alternatives considered, trade-offs, and project setup.
 
 ### Professional Practice
 
-Three merged pull requests showing what changed and why.
+Complete three merged pull requests that clearly explain what changed and why.
+
+---
+
+## Projects
+
+| Project | Status | Live Demo |
+|---|---|---|
+| Accessible Conference Schedule | Completed | https://devconnect-conference-schedule.vercel.app |
+| Personal Reading List | Completed | https://devconnect-reading-list.vercel.app |
+| Final Project | Upcoming | — |
 
 ---
 
