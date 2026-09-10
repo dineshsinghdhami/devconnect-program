@@ -30,7 +30,7 @@ Users can search countries, filter them by region, and open a country to view mo
 
 ## Live Demo
 
-Deployment link will be added after the project is deployed.
+https://devconnect-atlas-country-explorer.vercel.app/
 
 ## Tech Stack
 
