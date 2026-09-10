@@ -1,8 +1,10 @@
-# DevConnect Program
+# # DevConnect Verified Frontend Internship
 
-This repository contains my practical tasks, documentation, pull-request work, and final project completed as part of the DevConnect program.
+This repository documents my work for the [DevConnect Verified Frontend Internship](https://devconnectplatform.com/), including practical frontend tasks, API-based projects, accessibility work, documentation, pull-request practice, and the final project.
 
-## Progress
+DevConnect is developed by [VYREN code](https://vyrencode.com/).
+
+## # Progress
 
 - [x] Knowledge Assessment — 97%
 - [x] Task 1 — Accessible Conference Schedule
@@ -12,7 +14,7 @@ This repository contains my practical tasks, documentation, pull-request work, a
 - [x] Documentation
 - [x] Professional Practice — 3 merged pull requests
 
-## Repository Structure
+## # Repository Structure
 
 ```
 devconnect-program/
@@ -26,7 +28,7 @@ devconnect-program/
 
 ---
 
-# Task 1 — Accessible Conference Schedule
+# # Task 1 : Accessible Conference Schedule
 
 A responsive and keyboard-accessible two-day conference schedule built with React and Vite.
 
@@ -38,11 +40,11 @@ The application contains three parallel tracks:
 
 Users can switch between conference days and open individual session details using either a mouse or keyboard.
 
-## Live Demo
+## # Live Demo
 
 https://devconnect-conference-schedule.vercel.app
 
-## Features
+## # Features
 
 - Two-day conference schedule
 - Three parallel tracks
@@ -55,7 +57,7 @@ https://devconnect-conference-schedule.vercel.app
 - Arrow-key navigation between conference days
 - No horizontal scrolling at 320px
 
-## Keyboard Controls
+## # Keyboard Controls
 
 - `Tab` — move through interactive elements
 - `Enter` / `Space` — activate buttons
@@ -65,7 +67,7 @@ https://devconnect-conference-schedule.vercel.app
 - `End` — move to the last conference day
 - `Escape` — close the session details dialog
 
-## Responsive Layout Decision
+## # Responsive Layout Decision
 
 On desktop screens, the three conference tracks are displayed side by side.
 
@@ -75,7 +77,7 @@ This avoids horizontal scrolling and keeps session information readable on mobil
 
 The interface has been tested at a viewport width of 320px.
 
-## Tech Stack
+## # Tech Stack
 
 ```
 - React
@@ -86,17 +88,17 @@ The interface has been tested at a viewport width of 320px.
 
 ---
 
-# Task 2 — Personal Reading List
+# # Task 2 : Personal Reading List
 
 A responsive reading list application built with React and Vite.
 
 The application uses the Open Library API to search real books and allows users to save books to a personal reading list using browser `localStorage`.
 
-## Live Demo
+## # Live Demo
 
 https://devconnect-reading-list.vercel.app
 
-## Features
+## # Features
 
 - Search real books using the Open Library API
 - Display real book titles, authors, publication years, and covers
@@ -110,7 +112,7 @@ https://devconnect-reading-list.vercel.app
 - Reviewer controls for testing required application states
 - Retry action for the error state
 
-## Data Source
+## # Data Source
 
 Book data is fetched from the Open Library Search API.
 
@@ -118,31 +120,31 @@ Book covers are loaded using the Open Library Covers service.
 
 The application does not use hardcoded book data.
 
-## Persistent Storage
+## # Persistent Storage
 
 Saved books are stored using browser `localStorage`.
 
 This means the reading list remains available after refreshing the page on the same browser.
 
-## Required States
+## # Required States
 
-### Loading State
+### # Loading State
 
 The loading state can be tested using the `Loading` button in the Reviewer Tools section.
 
-### Error State
+### # Error State
 
 The error state can be tested using the `Error` button.
 
 The interface explains that the reading list could not be loaded and provides a retry action.
 
-### Empty State
+### # Empty State
 
 The empty state can be tested using the `Empty` button.
 
 The interface explains what the reading list is for and gives the user a clear first action.
 
-## Tech Stack
+## # Tech Stack
 
 ```
 - React
@@ -155,7 +157,7 @@ The interface explains what the reading list is for and gives the user a clear f
 
 ---
 
-# Final Project — Atlas Country Explorer
+# # Final Project : Atlas Country Explorer
 
 Atlas Country Explorer is a responsive web application that makes country information easier to search, browse, and understand.
 
@@ -163,11 +165,11 @@ The project uses the REST Countries v5 API to load real country data.
 
 Users can search countries, filter them by region, and open a country to view detailed information.
 
-## Live Demo
+## # Live Demo
 
 https://devconnect-atlas-country-explorer.vercel.app/
 
-## Features
+## # Features
 
 - Browse countries
 - Search countries by name
@@ -189,7 +191,7 @@ https://devconnect-atlas-country-explorer.vercel.app/
 - Escape key support
 - Focus restoration after closing the dialog
 
-## Data Source
+## # Data Source
 
 Country information is loaded from the REST Countries v5 API.
 
@@ -197,7 +199,7 @@ The application uses API data rather than hardcoded country information.
 
 The application also handles missing values by displaying `Not available` instead of guessing information.
 
-## Data Limitations
+## # Data Limitations
 
 The project depends on information returned by an external API.
 
@@ -209,21 +211,21 @@ Because of this:
 - API availability can affect the application.
 - The application does not independently verify every value against national government sources.
 
-## Application States
+## # Application States
 
-### Loading
+### # Loading
 
 A loading message is shown while country data is being requested.
 
-### Error
+### # Error
 
 If the API request fails, an error message is displayed with a `Try again` action.
 
-### Empty
+### # Empty
 
 If no country matches the selected search or region, the application displays a clear empty state and allows the user to clear the filters.
 
-## Tech Stack
+## # Tech Stack
 
 ```
 - React
@@ -235,7 +237,7 @@ If no country matches the selected search or region, the application displays a 
 
 ---
 
-# Documentation
+# # Documentation
 
 Technical decision records are stored in:
 
@@ -257,21 +259,21 @@ These decision records explain:
 
 ---
 
-# Professional Practice
+# # Professional Practice
 
 The final project was developed through separate branches and pull requests instead of making all changes directly on `main`.
 
-## Merged Pull Requests
+## # Merged Pull Requests
 
-### PR #1 — Final Project Setup
+### # PR #1 — Final Project Setup
 
 Set up the Atlas Country Explorer project, API integration, and initial filtering functionality.
 
-### PR #2 — Final Project UI
+### # PR #2 — Final Project UI
 
 Improved the interface, responsive country cards, search and filters, country detail popup, and accessibility behavior.
 
-### PR #3 — Documentation
+### # PR #3 — Documentation
 
 Added the final project README and technical decision records.
 
@@ -279,13 +281,13 @@ This approach keeps changes separated, reviewable, and easier to understand.
 
 ---
 
-# Community Contributions
+# # Community Contributions
 
 Five substantive contributions to five different DevConnect members are still to be completed.
 
 ---
 
-## Projects
+## # Projects
 
 | Project | Status | Live Demo |
 |---|---|---|
@@ -295,7 +297,7 @@ Five substantive contributions to five different DevConnect members are still to
 
 ---
 
-## Author
+## # Author
 
 **Dinesh Singh Dhami**
 
