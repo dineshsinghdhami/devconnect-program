@@ -82,22 +82,6 @@ The interface has been tested at a viewport width of 320px.
 - JavaScript
 - CSS
 
-## Run Task 1 Locally
-
-Move into the Task 1 directory:
-
-cd task-1-conference-schedule
-
-Install dependencies:
-
-npm install
-
-Start the development server:
-
-npm run dev
-
-Open the local Vite URL shown in the terminal.
-
 ---
 
 # Task 2 — Personal Reading List
@@ -158,26 +142,14 @@ The interface explains what the reading list is for and gives the user a clear f
 
 ## Tech Stack
 
+```
 - React
 - Vite
 - JavaScript
 - CSS
 - Open Library API
 - localStorage
-
-## Run Task 2 Locally
-
-Move into the Task 2 directory:
-
-cd task-2-reading-list
-
-Install dependencies:
-
-npm install
-
-Start the development server:
-
-npm run dev
+```
 
 ---
 
@@ -256,24 +228,6 @@ If no country matches the selected search or region, the application displays a 
 - JavaScript
 - CSS
 - REST Countries v5 API
-
-## Run Final Project Locally
-
-Move into the final project directory:
-
-cd final-project
-
-Install dependencies:
-
-npm install
-
-Create a `.env` file:
-
-VITE_REST_COUNTRIES_API_KEY=YOUR_API_KEY
-
-Start the development server:
-
-npm run dev
 
 ---
 
