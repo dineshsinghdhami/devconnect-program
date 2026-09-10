@@ -75,6 +75,7 @@ The layout has been tested at 320px viewport width.
 
 ## Project Structure
 
+```
 devconnect-conference-schedule/
 ├── src/
 │   ├── components/
@@ -91,39 +92,39 @@ devconnect-conference-schedule/
 ├── README.md
 ├── package.json
 └── vite.config.js
-
-## Run Locally
-
-Clone the repository:
-
-git clone YOUR_REPOSITORY_URL
-
-Move into the project folder:
-
-cd devconnect-conference-schedule
-
-Install dependencies:
-
-npm install
-
-Start the development server:
-
-npm run dev
-
-Open the local URL shown by Vite in your browser.
+```
 
 ## Accessibility Testing
 
-To test the project:
+A reviewer can verify the accessibility behavior without changing the source code.
 
-1. Navigate through the page using only the `Tab` key.
-2. Confirm that every interactive element has a visible focus indicator.
-3. Use `Enter` to open a session.
-4. Press `Escape` to close the session dialog.
-5. Confirm that focus returns to the same session button.
-6. Use the arrow keys to move between Day 1 and Day 2.
-7. Test the application at a viewport width of 320px.
-8. Confirm that no horizontal scrollbar appears.
+### Keyboard Navigation
+
+- Use `Tab` to move through interactive elements.
+- Use `Enter` or `Space` to activate buttons.
+- Use `Arrow Left` and `Arrow Right` to switch between conference days.
+- Use `Home` to move to the first conference day.
+- Use `End` to move to the last conference day.
+
+### Session Dialog
+
+- Open any session using the keyboard or mouse.
+- Press `Escape` to close the dialog.
+- After closing, focus returns to the same session button that opened it.
+
+### Focus Indicators
+
+Interactive elements include visible focus indicators so keyboard users can see which element is currently active.
+
+### Responsive Layout
+
+The layout has been tested at a viewport width of 320px.
+
+At small screen sizes:
+
+- Conference tracks stack vertically.
+- Content remains readable.
+- The page does not require horizontal scrolling.
 
 ## Author
 
