@@ -77,10 +77,12 @@ The interface has been tested at a viewport width of 320px.
 
 ## Tech Stack
 
+```
 - React
 - Vite
 - JavaScript
 - CSS
+```
 
 ---
 
@@ -223,11 +225,13 @@ If no country matches the selected search or region, the application displays a 
 
 ## Tech Stack
 
+```
 - React
 - Vite
 - JavaScript
 - CSS
 - REST Countries v5 API
+```
 
 ---
 
