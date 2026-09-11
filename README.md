@@ -1,10 +1,16 @@
 # # DevConnect Verified Frontend Internship
 
-This repository documents my work for the [DevConnect Verified Frontend Internship](https://devconnectplatform.com/), including practical frontend tasks, API-based projects, accessibility work, documentation, pull-request practice, and the final project.
+This repository contains the work I completed during the [DevConnect Verified Frontend Internship](https://devconnectplatform.com/).
+
+During this program, I worked on frontend fundamentals, React projects, accessibility, APIs, responsive design, documentation, GitHub pull requests, community contributions, and a final project.
 
 DevConnect is developed by [VYREN code](https://vyrencode.com/).
 
-## # Progress
+---
+
+## # My Progress
+
+I completed the following requirements during the program:
 
 - [x] Knowledge Assessment : 97%
 - [x] Task 1 : Accessible Conference Schedule
@@ -14,7 +20,11 @@ DevConnect is developed by [VYREN code](https://vyrencode.com/).
 - [x] Documentation
 - [x] Professional Practice : Met
 
+---
+
 ## # Repository Structure
+
+I kept all of my internship work inside a single repository and separated each task into its own folder.
 
 ```
 devconnect-program/
@@ -30,52 +40,56 @@ devconnect-program/
 
 # # Task 1 : Accessible Conference Schedule
 
-A responsive and keyboard-accessible two-day conference schedule built with React and Vite.
+For my first practical task, I built an accessible and responsive conference schedule using React and Vite.
 
-The application contains three parallel tracks:
+The goal of this task was to create a layout that could be fully used with a keyboard and still work properly on smaller screens.
+
+I created a two-day conference schedule with three tracks:
 
 - Frontend
 - Backend
 - AI & ML
 
-Users can switch between conference days and open individual session details using either a mouse or keyboard.
+Users can switch between conference days and open session details using either a mouse or keyboard.
 
-## # Live Demo
+## # What I Implemented
 
-https://devconnect-conference-schedule.vercel.app
-
-## # Features
+For this task, I added:
 
 - Two-day conference schedule
 - Three parallel tracks
-- Responsive desktop and mobile layouts
-- Keyboard-accessible navigation
+- Responsive desktop and mobile layout
+- Keyboard navigation
 - Visible focus indicators
-- Accessible session details dialog
-- Escape key support for closing dialogs
-- Focus returns to the original session button after closing
+- Accessible session detail dialog
+- Escape key support
+- Focus return after closing the dialog
 - Arrow-key navigation between conference days
-- No horizontal scrolling at 320px
+- Mobile layout without horizontal scrolling at 320px
 
-## # Keyboard Controls
+## # Keyboard Support
 
-- `Tab` — move through interactive elements
-- `Enter` / `Space` — activate buttons
-- `Arrow Right` — move to the next conference day
-- `Arrow Left` — move to the previous conference day
-- `Home` — move to the first conference day
-- `End` — move to the last conference day
-- `Escape` — close the session details dialog
+I added keyboard controls so the application can be used without a mouse.
+
+The controls include:
+
+- `Tab` to move between interactive elements
+- `Enter` / `Space` to activate buttons
+- `Arrow Right` to move to the next conference day
+- `Arrow Left` to move to the previous conference day
+- `Home` to move to the first conference day
+- `End` to move to the last conference day
+- `Escape` to close the session details dialog
 
 ## # Responsive Layout Decision
 
-On desktop screens, the three conference tracks are displayed side by side.
+At first, the three conference tracks were displayed side by side.
 
-On smaller screens, the layout changes to a single-column structure so the tracks are displayed vertically.
+This worked well on desktop but became difficult to use on smaller screens.
 
-This avoids horizontal scrolling and keeps session information readable on mobile devices.
+To solve this, I changed the layout so the three tracks stack vertically on mobile devices.
 
-The interface has been tested at a viewport width of 320px.
+This helped me avoid horizontal scrolling and kept the session cards readable even at a width of 320px.
 
 ## # Tech Stack
 
@@ -86,63 +100,78 @@ The interface has been tested at a viewport width of 320px.
 - CSS
 ```
 
+## # Live Demo
+
+https://devconnect-conference-schedule.vercel.app
+
 ---
 
 # # Task 2 : Personal Reading List
 
-A responsive reading list application built with React and Vite.
+For my second practical task, I built a Personal Reading List application.
 
-The application uses the Open Library API to search real books and allows users to save books to a personal reading list using browser `localStorage`.
+The goal of this task was to work with real data and clearly handle three important application states:
 
-## # Live Demo
+- Loading
+- Error
+- Empty
 
-https://devconnect-reading-list.vercel.app
+I used the Open Library API to search for real books.
 
-## # Features
+Users can search for books and save them to their own reading list.
 
-- Search real books using the Open Library API
-- Display real book titles, authors, publication years, and covers
-- Add books to a personal reading list
-- Remove books from the reading list
-- Saved books persist after page refresh
-- Responsive desktop and mobile layout
+## # What I Implemented
+
+I added:
+
+- Real book search using Open Library
+- Book titles
+- Authors
+- Publication years
+- Book covers
+- Add to reading list
+- Remove from reading list
+- Persistent storage using `localStorage`
+- Responsive layout
 - Loading state
 - Error state
 - Empty state
-- Reviewer controls for testing required application states
-- Retry action for the error state
+- Reviewer tools
+- Retry action
 
 ## # Data Source
 
-Book data is fetched from the Open Library Search API.
+I used the Open Library Search API to get book information.
 
-Book covers are loaded using the Open Library Covers service.
+Book cover images are loaded using the Open Library Covers service.
 
-The application does not use hardcoded book data.
+I did not use hardcoded book data.
 
 ## # Persistent Storage
 
-Saved books are stored using browser `localStorage`.
+I used browser `localStorage` to save the reading list.
 
-This means the reading list remains available after refreshing the page on the same browser.
+This means saved books remain available even after refreshing the page in the same browser.
 
-## # Required States
+## # Required Application States
 
 ### # Loading State
 
-The loading state can be tested using the `Loading` button in the Reviewer Tools section.
+I added a loading state so users can clearly see when data is being fetched.
+
+I also added a reviewer control so this state can be tested directly.
 
 ### # Error State
 
-The error state can be tested using the `Error` button.
+I added an error state that explains when something fails.
 
-The interface explains that the reading list could not be loaded and provides a retry action.
+The user also gets a retry option.
 
 ### # Empty State
 
-The empty state can be tested using the `Empty` button.
+I created an empty state for new users.
 
-The interface explains what the reading list is for and gives the user a clear first action.
+Instead of showing only a blank screen, it explains what the reading list is for and gives the user a clear first action.
 
 ## # Tech Stack
 
@@ -155,28 +184,32 @@ The interface explains what the reading list is for and gives the user a clear f
 - localStorage
 ```
 
+## # Live Demo
+
+https://devconnect-reading-list.vercel.app
+
 ---
 
 # # Final Project : Atlas Country Explorer
 
-Atlas Country Explorer is a responsive web application that makes country information easier to search, browse, and understand.
+For my final project, I built Atlas Country Explorer.
 
-The project uses the REST Countries v5 API to load real country data.
+I wanted to create an application that makes country information easier to search and understand instead of only displaying raw API data.
 
-Users can search countries, filter them by region, and open a country to view detailed information.
+I used the REST Countries v5 API as the main data source.
 
-## # Live Demo
+Users can browse countries, search by name, filter by region, and open detailed country information.
 
-https://devconnect-atlas-country-explorer.vercel.app/
+## # What I Built
 
-## # Features
+I implemented:
 
-- Browse countries
-- Search countries by name
+- Country browsing
+- Search by country name
 - Functional Search button
 - Enter-key search support
-- Filter countries by region
-- Real country flags
+- Region filtering
+- Country flags
 - Capital information
 - Region and subregion
 - Population
@@ -185,47 +218,74 @@ https://devconnect-atlas-country-explorer.vercel.app/
 - Currency information
 - Country detail popup
 - Loading state
-- Error state with retry
+- Error state
 - Empty search state
 - Show-more functionality
-- Responsive desktop, tablet, and mobile layout
-- Keyboard-accessible country detail dialog
+- Responsive design
+- Keyboard-accessible dialog
 - Escape key support
 - Focus restoration after closing the dialog
 
+## # Search Improvement
+
+Initially, the search field filtered data while typing.
+
+Later, I improved the search interaction so the Search button actually performs the search.
+
+I also added support for pressing `Enter` inside the search field.
+
+This improvement was completed through a separate pull request.
+
 ## # Data Source
 
-Country information is loaded from the REST Countries v5 API.
+I used the REST Countries v5 API.
 
-The application uses API data rather than hardcoded country information.
+The application loads country information from the API instead of storing country data manually.
 
-The application also handles missing values by displaying `Not available` instead of guessing information.
+When information is missing, I display:
+
+`Not available`
+
+instead of guessing or creating data.
 
 ## # Data Limitations
 
-The project depends on information returned by an external API.
+While building the project, I also documented the limitations of using an external data source.
 
-Because of this:
+For example:
 
 - Some values may change over time.
-- Some countries may not contain every data field.
-- Population and other changing statistics depend on the API's update schedule.
+- Some countries may not contain every field.
+- Population depends on the API's update schedule.
 - API availability can affect the application.
-- The application does not independently verify every value against national government sources.
+- The application does not independently verify every value against official government sources.
 
 ## # Application States
 
 ### # Loading
 
-A loading message is shown while country data is being requested.
+I added a loading message while the country data is being requested.
 
 ### # Error
 
-If the API request fails, an error message is displayed with a `Try again` action.
+If the API request fails, the application displays an error message and provides a `Try again` button.
 
 ### # Empty
 
-If no country matches the selected search or region, the application displays a clear empty state and allows the user to clear the filters.
+If no country matches the user's search or selected region, the application displays an empty state and allows the user to clear the filters.
+
+## # Accessibility
+
+I added several accessibility improvements to the country detail popup.
+
+These include:
+
+- `role="dialog"`
+- `aria-modal="true"`
+- Keyboard focus
+- Escape key support
+- Accessible close button
+- Focus returning to the original country button
 
 ## # Tech Stack
 
@@ -237,77 +297,142 @@ If no country matches the selected search or region, the application displays a 
 - REST Countries v5 API
 ```
 
+## # Live Demo
+
+https://devconnect-atlas-country-explorer.vercel.app/
+
 ---
 
 # # Documentation
 
-Technical decision records are stored in:
+For the documentation requirement, I created three technical decision records for my final project.
+
+They are stored inside:
 
 docs/decisions/
 
-The documentation includes:
+The files are:
 
 - `001-rest-countries-api.md`
 - `002-country-detail-modal.md`
 - `003-show-more-pagination.md`
 
-These decision records explain:
+## # What I Documented
 
-- The decision that was made
-- Alternatives considered
-- Why the selected approach was chosen
-- Downsides and trade-offs
-- Awkward or difficult parts of the implementation
+For every decision, I explained:
 
-Documentation has been completed and marked as **Met** by DevConnect.
+- What I decided
+- What alternatives I considered
+- Why I selected that option
+- What disadvantages or costs came with it
+- What became difficult or awkward during implementation
+
+## # Decision 1 : REST Countries API
+
+I documented why I selected REST Countries v5 instead of using older APIs, GitHub datasets, or hardcoded country data.
+
+I also documented the downside of depending on an external API and API key configuration.
+
+## # Decision 2 : Country Detail Modal
+
+I documented why I used a popup modal instead of expanding cards, showing a large section below the grid, or creating separate detail pages.
+
+I also documented the accessibility work required for focus and keyboard handling.
+
+## # Decision 3 : Show More
+
+I documented why I used a Show More button instead of displaying every country at once, traditional pagination, or infinite scrolling.
+
+I also explained the downside that users need another action to see more results.
+
+The Documentation requirement was completed and marked as **Met** by DevConnect.
 
 ---
 
 # # Professional Practice
 
-Professional Practice has been completed and marked as **Met** by DevConnect.
+For Professional Practice, I worked with GitHub branches and pull requests instead of making every change directly on `main`.
 
-The repository uses feature branches and pull requests instead of making all project changes directly on `main`.
+This helped me practice a workflow closer to how development teams manage changes.
 
-## # Pull Request Work
+## # Pull Requests I Completed
 
-### # PR #1 — Final Project Setup
+### # PR #1 : Final Project Setup
 
-Set up the Atlas Country Explorer project, API integration, and initial filtering functionality.
+I created the initial Atlas Country Explorer project and added the API integration and filtering functionality.
 
-### # PR #2 — Final Project UI
+### # PR #2 : Final Project UI
 
-Improved the interface, responsive country cards, search and filters, country detail popup, and accessibility behavior.
+I improved the interface, responsive country cards, search, filters, country detail popup, and accessibility behavior.
 
-### # PR #3 — Documentation
+### # PR #3 : Documentation
 
-Added the final project README and technical decision records.
+I added the final project README and technical decision records.
 
-### # PR #4 — Reviewer Guidance
+### # PR #4 : Reviewer Guidance
 
-Improved the final project README with clearer instructions for reviewers.
+I improved the final project README so reviewers could understand how to test the application.
 
-### # PR #5 — Search Improvement
+### # PR #5 : Search Improvement
 
-Made the country Search button functional and added Enter-key search support.
+I made the Search button functional and added Enter-key search support.
 
-### # PR #6 — Task 1 Accessibility Documentation
+### # PR #6 : Task 1 Accessibility Documentation
 
-Improved the accessibility testing documentation for the conference schedule project.
+I improved the accessibility testing documentation for the conference schedule project.
 
-The later pull requests were completed after connecting the repository to DevConnect and were counted toward the Professional Practice milestone.
+These pull requests were created using separate branches and merged into `main`.
+
+Professional Practice was marked as **Met** by DevConnect.
 
 ---
 
 # # Community Contributions
 
-Community Contribution has been completed and marked as **Met** by DevConnect.
+For the Community Contribution requirement, I interacted with other DevConnect members and provided useful feedback on their projects.
 
-I completed five substantive contributions to five different DevConnect members by providing useful feedback and responding to their project work.
+I completed contributions for five different members.
 
-- 5/5 contributions completed
-- Five different community members
-- Feedback focused on real projects and technical ideas
+My comments included feedback and questions related to:
+
+- Project ideas
+- User experience
+- AI tools
+- Privacy
+- Data handling
+- Product improvements
+
+I completed:
+
+- 5/5 contributions
+- Contributions to five different members
+
+Community Contribution was marked as **Met** by DevConnect.
+
+---
+
+# # What I Learned
+
+During this internship, I worked on more than just building interfaces.
+
+I practiced:
+
+- React development
+- Component-based frontend development
+- Working with APIs
+- Loading, error, and empty states
+- Responsive web design
+- Accessibility
+- Keyboard navigation
+- Browser storage
+- Git branches
+- Pull requests
+- Documentation
+- Technical decision records
+- Deployment with Vercel
+- Community feedback
+
+The program also helped me understand why it is important to explain technical decisions instead of only showing finished code.
 
 ---
 
@@ -315,7 +440,7 @@ I completed five substantive contributions to five different DevConnect members 
 
 | Area | Status |
 |---|---|
-| Knowledge Assessment | Passed — 97% |
+| Knowledge Assessment | Passed : 97% |
 | Task 1 | Met |
 | Task 2 | Met |
 | Final Project | Met |
@@ -337,9 +462,7 @@ I completed five substantive contributions to five different DevConnect members 
 
 ## # Program Completion
 
-All technical and community requirements for the DevConnect Verified Frontend Internship have been completed.
-
-The remaining certificate availability depends only on DevConnect's minimum enrollment-period requirement.
+I completed all technical, project, documentation, professional-practice, and community requirements for the DevConnect Verified Frontend Internship.
 
 ---
 
